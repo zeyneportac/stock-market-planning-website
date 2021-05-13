@@ -21,6 +21,7 @@ import {
 } from './components/layouts';
 import { DialogWindowComponent, PaginationComponent } from './components';
 import { DashboardComponent, LoginComponent } from './pages';
+import { UserListComponent } from './pages/user-list/user-list.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -39,6 +40,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     LoginComponent,
     DialogWindowComponent,
     PaginationComponent,
+    UserListComponent,
   ],
   imports: [
     BrowserModule,
