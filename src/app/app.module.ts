@@ -21,6 +21,7 @@ import {
 } from './components/layouts';
 import { DialogWindowComponent, PaginationComponent } from './components';
 import { DashboardComponent, LoginComponent } from './pages';
+import { PasswordChangeComponent } from './components/password-change/password-change.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -39,6 +40,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     LoginComponent,
     DialogWindowComponent,
     PaginationComponent,
+    PasswordChangeComponent,
   ],
   imports: [
     BrowserModule,
