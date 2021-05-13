@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthService, AdminSidebarItemService } from '../../../../utils/services';
+import { AuthService, AdminSidebarItemService } from '../../../utils/services';
 
 @Component({
   selector: 'app-admin-sidebar',

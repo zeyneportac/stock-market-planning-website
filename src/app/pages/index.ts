@@ -1,2 +1,2 @@
-export * from './client'
-export * from './admin'
+export * from './dashboard/dashboard.component';
+export * from './login/login.component';

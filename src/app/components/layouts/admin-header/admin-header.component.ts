@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LanguageService, AuthService } from '../../../../utils';
+import { LanguageService, AuthService } from '../../../utils';
 
 @Component({
   selector: 'app-admin-header',

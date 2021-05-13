@@ -9,22 +9,45 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { AdminLayoutModule } from './pages/admin/admin-layout.module';
+import { NgSearchFilterModule } from 'ng-search-filter';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { MatModule } from './utils';
+import {
+  AdminSidebarComponent,
+  AdminControlSidebarComponent,
+  AdminFooterComponent,
+  AdminLayoutComponent,
+  AdminHeaderComponent,
+} from './components/layouts';
+import { DialogWindowComponent, PaginationComponent } from './components';
+import { DashboardComponent, LoginComponent } from './pages';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
 
 @NgModule({
-  declarations: [AppComponent, routingComponents],
+  declarations: [
+    AppComponent,
+    routingComponents,
+    AdminLayoutComponent,
+    DashboardComponent,
+    AdminFooterComponent,
+    AdminControlSidebarComponent,
+    AdminHeaderComponent,
+    AdminSidebarComponent,
+    LoginComponent,
+    DialogWindowComponent,
+    PaginationComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AdminLayoutModule,
     HttpClientModule,
     BrowserAnimationsModule,
     RouterModule,
+    NgSearchFilterModule,
+    NgxPaginationModule,
     FormsModule,
     MatSnackBarModule,
     MatModule,
