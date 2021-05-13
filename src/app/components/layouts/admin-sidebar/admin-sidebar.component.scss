@@ -5,6 +5,12 @@
 
 .nav-link {
   cursor: pointer;
-  background-color: #493d52 !important;
   color: white;
+}
+
+a:active {
+  background-color: #493d52 !important;
+}
+a:hover {
+  background-color: #493d52 !important;
 }

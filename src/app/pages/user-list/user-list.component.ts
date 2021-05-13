@@ -47,7 +47,7 @@ export class UserListComponent implements OnInit {
         try {
           await this._userService.deleteAsync({ Id });
           this.users.splice(
-            this.users.findIndex((sing) => sing.Id == Id),
+            this.users.findIndex((user) => user.Id == Id),
             1
           );
           let notificationMessage: string;

@@ -22,6 +22,10 @@ import {
 import { DialogWindowComponent, PaginationComponent } from './components';
 import { DashboardComponent, LoginComponent } from './pages';
 import { UserListComponent } from './pages/user-list/user-list.component';
+import { AddUserComponent } from './pages/add-user/add-user.component';
+import { PasswordControlWindowComponent } from './components/password-control-window/password-control-window.component';
+import { ProductListComponent } from './pages/product-list/product-list.component';
+import { AddProductComponent } from './components/add-product/add-product.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -41,6 +45,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     DialogWindowComponent,
     PaginationComponent,
     UserListComponent,
+    AddUserComponent,
+    PasswordControlWindowComponent,
+    ProductListComponent,
+    AddProductComponent,
   ],
   imports: [
     BrowserModule,

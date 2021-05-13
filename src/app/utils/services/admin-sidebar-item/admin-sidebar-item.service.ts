@@ -15,6 +15,16 @@ export class AdminSidebarItemService {
       icon: 'fa fa-address-book',
       link: '/users',
     },
+    {
+      title: 'User Add',
+      icon: 'fa fa-user-plus',
+      link: '/user/add',
+    },
+    {
+      title: 'Product List',
+      icon: 'fa fa-shopping-basket',
+      link: '/products',
+    },
   ];
 
   getChildUrlActiveState(path: string[]) {

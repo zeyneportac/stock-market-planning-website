@@ -1,7 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AdminLayoutComponent } from './components/layouts';
-import { DashboardComponent, LoginComponent, UserListComponent } from './pages';
+import {
+  DashboardComponent,
+  LoginComponent,
+  UserListComponent,
+  AddUserComponent,
+  ProductListComponent,
+} from './pages';
 import { Roles } from './models';
 
 const routes: Routes = [
@@ -20,6 +26,33 @@ const routes: Routes = [
         data: {
           title: 'User List',
           icon: 'fa fa-2x fa-user',
+          authorize: [Roles.Root, Roles.Administrator],
+        },
+      },
+      {
+        path: 'user/add',
+        component: AddUserComponent,
+        data: {
+          title: 'Add User',
+          icon: 'fa fa-2x fa-user-plus',
+          authorize: [Roles.Root, Roles.Administrator],
+        },
+      },
+      {
+        path: 'user/edit/:Id',
+        component: AddUserComponent,
+        data: {
+          title: 'Edit User',
+          icon: 'fa fa-2x fa-home',
+          authorize: [Roles.Root, Roles.Administrator],
+        },
+      },
+      {
+        path: 'products',
+        component: ProductListComponent,
+        data: {
+          title: 'Product List',
+          icon: 'fa fa-2x fa-shopping-basket',
           authorize: [Roles.Root, Roles.Administrator],
         },
       },

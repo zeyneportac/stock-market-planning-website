@@ -40,7 +40,8 @@
   }
 
   & a.active {
-    background-color: #007bff;
+    background-color: #493d52 !important;
+
     pointer-events: none;
     color: white;
     border: 1px solid #007bff;
