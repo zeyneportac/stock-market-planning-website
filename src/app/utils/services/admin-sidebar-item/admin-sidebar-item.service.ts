@@ -11,19 +11,29 @@ export class AdminSidebarItemService {
   _url = this._router.routerState.snapshot.url;
   menu: Array<object> = [
     {
-      title: 'User List',
-      icon: 'fa fa-address-book',
-      link: '/users',
-    },
-    {
       title: 'User Add',
       icon: 'fa fa-user-plus',
       link: '/user/add',
     },
     {
+      title: 'User List',
+      icon: 'fa fa-address-book',
+      link: '/users',
+    },
+    {
       title: 'Product List',
-      icon: 'fa fa-shopping-basket',
+      icon: 'fa fa-store',
       link: '/products',
+    },
+    {
+      title: 'Balance List',
+      icon: 'fa fa-credit-card',
+      link: '/balance',
+    },
+    {
+      title: 'Order List',
+      icon: 'fa fa-shopping-basket',
+      link: '/order',
     },
   ];
 

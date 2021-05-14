@@ -7,6 +7,8 @@ import {
   UserListComponent,
   AddUserComponent,
   ProductListComponent,
+  BalanceListComponent,
+  OrderListComponent,
 } from './pages';
 import { Roles } from './models';
 
@@ -18,7 +20,7 @@ const routes: Routes = [
       {
         path: '',
         component: DashboardComponent,
-        data: { title: 'Dashboard', icon: 'fa fa-2x fa-home' },
+        data: { title: '', icon: '' },
       },
       {
         path: 'users',
@@ -52,6 +54,24 @@ const routes: Routes = [
         component: ProductListComponent,
         data: {
           title: 'Product List',
+          icon: 'fa fa-2x fa-store',
+          authorize: [Roles.Root, Roles.Administrator],
+        },
+      },
+      {
+        path: 'balance',
+        component: BalanceListComponent,
+        data: {
+          title: 'Balance List',
+          icon: 'fa fa-2x fa-credit-card',
+          authorize: [Roles.Root, Roles.Administrator],
+        },
+      },
+      {
+        path: 'order',
+        component: OrderListComponent,
+        data: {
+          title: 'Order List',
           icon: 'fa fa-2x fa-shopping-basket',
           authorize: [Roles.Root, Roles.Administrator],
         },

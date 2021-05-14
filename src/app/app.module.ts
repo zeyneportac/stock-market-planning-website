@@ -26,6 +26,10 @@ import { AddUserComponent } from './pages/add-user/add-user.component';
 import { PasswordControlWindowComponent } from './components/password-control-window/password-control-window.component';
 import { ProductListComponent } from './pages/product-list/product-list.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
+import { BalanceListComponent } from './pages/balance-list/balance-list.component';
+import { AddBalanceComponent } from './components/add-balance/add-balance.component';
+import { OrderListComponent } from './pages/order-list/order-list.component';
+import { AddOrderComponent } from './components/add-order/add-order.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -49,6 +53,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     PasswordControlWindowComponent,
     ProductListComponent,
     AddProductComponent,
+    BalanceListComponent,
+    AddBalanceComponent,
+    OrderListComponent,
+    AddOrderComponent,
   ],
   imports: [
     BrowserModule,
