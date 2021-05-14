@@ -50,6 +50,11 @@ const routes: Routes = [
         },
       },
       {
+        path: 'user/profile',
+        component: AddUserComponent,
+        data: { title: 'Profile', icon: 'fa fa-2x fa-user' },
+      },
+      {
         path: 'products',
         component: ProductListComponent,
         data: {

@@ -29,7 +29,7 @@
                     }}</span>
             </a>
             <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="left: inherit; right: 0px;">
-                <li class="user-header bg-primary">
+                <li class="user-header bg">
                     <img src="assets/images/default/user.png" class="img-circle elevation-2" alt="User Image">
 
                     <p>
@@ -37,11 +37,17 @@
                         <small>{{ userInformation.UserTypeName | translate }}</small>
                     </p>
                 </li>
-
+                <li>
+                    <div class="col-6 add-button pt-2">
+                        <button type="button" class="btn btn-sm btn-violet" (click)="openAddBalance()"><i
+                                class="fas fa-plus"></i>
+                            {{ 'Add Balance' | translate }}</button>
+                    </div>
+                </li>
                 <li class="user-footer">
-                    <a [routerLink]="['/admin/user/profile']" class="btn btn-default btn-flat">{{'Profile' |
+                    <a [routerLink]="['/user/profile']" class="btn btn-violet btn-flat">{{'Profile' |
                         translate}}</a>
-                    <a (click)="signout()" class="btn btn-default btn-flat float-right">{{ 'Sign out' | translate }}</a>
+                    <a (click)="signout()" class="btn btn-violet btn-flat float-right">{{ 'Sign out' | translate }}</a>
                 </li>
             </ul>
         </li>

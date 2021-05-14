@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LanguageService, AuthService } from '../../../utils';
+import { MatDialog } from '@angular/material/dialog';
+import { AddBalanceComponent } from '../../../components';
+import { Balance } from '../../../models';
 
 @Component({
   selector: 'app-admin-header',
@@ -9,9 +12,24 @@ import { LanguageService, AuthService } from '../../../utils';
 export class AdminHeaderComponent implements OnInit {
   constructor(
     private _languageService: LanguageService,
-    private _authService: AuthService
+    private _authService: AuthService,
+    private _dialog: MatDialog
   ) {}
 
+  balanceList: Array<Balance>;
+
+  openAddBalance(Id = null) {
+    const diologRef = this._dialog.open(AddBalanceComponent, {
+      width: '400px',
+      data:
+        Id == null
+          ? null
+          : this.balanceList.find((balance) => balance.Id == Id),
+    });
+    diologRef.afterClosed().subscribe((result: any) => {
+      if (result) this.ngOnInit();
+    });
+  }
   userInformation = this._authService.currentUserValue.result;
   lang: string =
     this._languageService.getLanguage() == 'en'

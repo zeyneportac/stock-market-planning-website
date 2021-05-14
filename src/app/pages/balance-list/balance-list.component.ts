@@ -3,7 +3,7 @@ import { BalanceService } from '../../utils';
 import { TranslateService } from '@ngx-translate/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
-import { AddBalanceComponent, DialogWindowComponent } from '../../components';
+import { DialogWindowComponent } from '../../components';
 import { Balance } from '../../models';
 
 @Component({
@@ -35,18 +35,7 @@ export class BalanceListComponent implements OnInit {
       this._balanceService.errorNotification(error);
     }
   }
-  openAddBalance(Id = null) {
-    const diologRef = this._dialog.open(AddBalanceComponent, {
-      width: '400px',
-      data:
-        Id == null
-          ? null
-          : this.balanceList.find((balance) => balance.Id == Id),
-    });
-    diologRef.afterClosed().subscribe((result: any) => {
-      if (result) this.ngOnInit();
-    });
-  }
+
   async balanceDelete(Id) {
     const diologRef = this._dialog.open(DialogWindowComponent, {
       data: {
