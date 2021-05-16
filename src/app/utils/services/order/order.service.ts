@@ -57,7 +57,7 @@ export class OrderService {
     switch (error.status) {
       case 400:
         this._translateService
-          .get('The order is not registered in the system !')
+          .get('Product quantity insufficient')
           .subscribe((value) => (errorMessage = value));
         break;
       case 401:
@@ -65,19 +65,14 @@ export class OrderService {
           .get('Unauthorized transaction !')
           .subscribe((value) => (errorMessage = value));
         break;
-      case 409:
+      case 402:
         this._translateService
-          .get('Such an order is already registered in the system !')
+          .get('Insufficient balance !')
           .subscribe((value) => (errorMessage = value));
         break;
       case 417:
         this._translateService
           .get('Please enter correct order information !')
-          .subscribe((value) => (errorMessage = value));
-        break;
-      case 404:
-        this._translateService
-          .get('No order record found in the system !')
           .subscribe((value) => (errorMessage = value));
         break;
       default:

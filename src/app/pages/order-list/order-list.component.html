@@ -1,59 +1,67 @@
 <div class="row">
-    <div class="col-3 add-button pt-2">
-        <button type="button" class="btn btn-sm " (click)="openAddOrder()"><i class="fas fa-plus"></i>
-            {{ 'Add Order' | translate }}</button>
-    </div>
-    <div class="col-8 ml-auto text-right pr-2">
-        <mat-form-field>
-            <mat-label>{{ 'Search' | translate }}</mat-label>
-            <input matInput type="text" [(ngModel)]="searchText" (keypress)="paginationConfig.currentPage = 1"
-                placeholder="{{ 'Enter Words for Search' | translate }}" name="SearchText">
-            <a type="button" matSuffix [attr.aria-label]="'Search'">
-                <mat-icon>search</mat-icon>
-            </a>
-        </mat-form-field>
-    </div>
+  <div class="col-3 add-button pt-2">
+    <button type="button" class="btn btn-sm" (click)="openAddOrder()">
+      <i class="fas fa-plus"></i> {{ "Add Order" | translate }}
+    </button>
+  </div>
+  <div class="col-8 ml-auto text-right pr-2">
+    <mat-form-field>
+      <mat-label>{{ "Search" | translate }}</mat-label>
+      <input
+        matInput
+        type="text"
+        [(ngModel)]="searchText"
+        (keypress)="paginationConfig.currentPage = 1"
+        placeholder="{{ 'Enter Words for Search' | translate }}"
+        name="SearchText"
+      />
+      <a type="button" matSuffix [attr.aria-label]="'Search'">
+        <mat-icon>search</mat-icon>
+      </a>
+    </mat-form-field>
+  </div>
 </div>
 <div class="card">
-    <div class="card-body table-responsive p-0">
-        <table class="table table-hover table-striped">
-            <thead>
-                <tr>
-                    <th>{{ 'Id' | translate }}</th>
-                    <th>{{ 'Receiver User Id' | translate }}</th>
-                    <th>{{ 'Product Id' | translate }}</th>
-                    <th>{{ 'Product Price' | translate }}</th>
-                    <th>{{ 'Quantity' | translate }}</th>
-                    <th>{{ 'Created Date' | translate }}</th>
-
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let order of orders | filter:searchText | paginate: paginationConfig">
-                    <td> {{ order.Id}} </td>
-                    <td> {{ order.ReceiverUserId}} </td>
-                    <td> {{ order.ProductId}} </td>
-                    <td> {{ order.ProductPrice}} </td>
-                    <td> {{ order.Quantity}} </td>
-                    <td> {{ order.CreatedDate}} </td>
-                    <td class="list-button text-right">
-                        <a mat-icon-button [matMenuTriggerFor]="menu">
-                            <mat-icon class="list-menu">more_vert</mat-icon>
-                        </a>
-                        <mat-menu #menu="matMenu">
-                            <a mat-menu-item (click)="openAddOrder(order.Id)">
-                                <mat-icon>edit</mat-icon>
-                                <span>{{ 'Edit' | translate }}</span>
-                            </a>
-                            <a mat-menu-item (click)="orderDelete(order.Id)">
-                                <mat-icon>delete</mat-icon>
-                                <span>{{ 'Delete' | translate }}</span>
-                            </a>
-                        </mat-menu>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+  <div class="card-body table-responsive p-0">
+    <table class="table table-hover table-striped">
+      <thead>
+        <tr>
+          <th>{{ "Id" | translate }}</th>
+          <th>{{ "Product Price" | translate }}</th>
+          <th>{{ "Quantity" | translate }}</th>
+          <th>{{ "Created Date" | translate }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="
+            let order of orderList
+              | filter: searchText
+              | paginate: paginationConfig
+          "
+        >
+          <td>{{ order.Id }}</td>
+          <td>{{ order.ProductPrice }}</td>
+          <td>{{ order.Quantity }}</td>
+          <td>{{ order.CreatedDate }}</td>
+          <td class="list-button text-right">
+            <a mat-icon-button [matMenuTriggerFor]="menu">
+              <mat-icon class="list-menu">more_vert</mat-icon>
+            </a>
+            <mat-menu #menu="matMenu">
+              <a mat-menu-item (click)="openAddOrder(order.Id)">
+                <mat-icon>edit</mat-icon>
+                <span>{{ "Edit" | translate }}</span>
+              </a>
+              <a mat-menu-item (click)="orderDelete(order.Id)">
+                <mat-icon>delete</mat-icon>
+                <span>{{ "Delete" | translate }}</span>
+              </a>
+            </mat-menu>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
 <app-pagination [config]="paginationConfig"></app-pagination>
