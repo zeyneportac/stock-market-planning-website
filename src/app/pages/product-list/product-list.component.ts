@@ -3,8 +3,12 @@ import { ProductService } from '../../utils';
 import { TranslateService } from '@ngx-translate/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
-import { AddProductComponent, DialogWindowComponent } from '../../components';
-import { Product } from '../../models';
+import {
+  AddProductComponent,
+  DialogWindowComponent,
+  AddOrderComponent,
+} from '../../components';
+import { Order, Product } from '../../models';
 
 @Component({
   selector: 'app-product-list',
@@ -18,7 +22,7 @@ export class ProductListComponent implements OnInit {
     private _translateService: TranslateService,
     private _dialog: MatDialog
   ) {}
-
+  orderList: Array<Order>;
   productList: Array<Product>;
   searchText: string;
   products: Product[];
@@ -34,6 +38,15 @@ export class ProductListComponent implements OnInit {
     } catch (error) {
       this._productService.errorNotification(error);
     }
+  }
+  openAddOrder(Id = null) {
+    const diologRef = this._dialog.open(AddOrderComponent, {
+      width: '400px',
+      data: Id == null ? null : this.orderList.find((order) => order.Id == Id),
+    });
+    diologRef.afterClosed().subscribe((result: any) => {
+      if (result) this.ngOnInit();
+    });
   }
   openAddProduct(Id = null) {
     const diologRef = this._dialog.open(AddProductComponent, {
