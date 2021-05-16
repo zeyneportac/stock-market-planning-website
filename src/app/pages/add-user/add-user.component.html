@@ -31,7 +31,7 @@
                                     pattern="^[a-z0-9.%+-]+@[a-z0-9.-]+.[a-z]{2,4}$" name="EmailAddress"
                                     #EmailAddress="ngModel" [(ngModel)]="_model.EmailAddress" required>
                                 <mat-error *ngIf="EmailAddress.invalid&&EmailAddress.touched">
-                                    {{ 'Email adress field must be filled' | translate }}</mat-error>
+                                    {{ 'Email address field must be filled' | translate }}</mat-error>
                             </mat-form-field>
                         </div>
                         <div class="col-12 form-group" [hidden]="_router.isActive('/user/profile',true)">
