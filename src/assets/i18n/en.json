@@ -104,7 +104,13 @@
 	"Add User": "Add User",
 	"Product List": "Product List",
 	"Order List": "Order List",
-	"Automatic password generation":"Automatic password generation"
+	"Automatic password generation":"Automatic password generation",
+	"Product State": "Product State",
+	"Edit User": "Edit User",
+	"Confirm Amount": "Confirm Amount",
+	"Seller": "Seller",
+	"Phone Number": "Phone Number"
+
 
 
 }
