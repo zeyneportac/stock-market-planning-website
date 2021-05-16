@@ -22,24 +22,6 @@ export class BalanceService {
     );
   }
 
-  async deleteAsync(values) {
-    return await this._apiFetchService.requestAsync(
-      'DELETE',
-      'balance',
-      values,
-      true
-    );
-  }
-
-  async findAsync(Id) {
-    return await this._apiFetchService.requestAsync(
-      'GET',
-      `balance/${Id}`,
-      null,
-      true
-    );
-  }
-
   async insertAsync(values) {
     return await this._apiFetchService.requestAsync(
       'POST',
@@ -48,15 +30,15 @@ export class BalanceService {
       true
     );
   }
-
-  async updateAsync(values) {
+  async confirmAmount(values) {
     return await this._apiFetchService.requestAsync(
-      'PUT',
-      'balance',
+      'POST',
+      'balance/confirmation',
       values,
       true
     );
   }
+
   errorNotification(error) {
     let errorMessage: string;
     switch (error.status) {

@@ -29,19 +29,8 @@ export class AddBalanceComponent implements OnInit {
   disableButton: boolean = false;
 
   async ngOnInit() {
-    if (this.data?.Id != null) {
-      try {
-        this._model = this.data;
-        console.log(this._model);
-      } catch (error) {
-        this._balanceService.errorNotification(error);
-        this._router.navigateByUrl('admin');
-      }
-      this._action = this.updateActionAsync;
-    } else {
-      this._balanceRenew = false;
-      this._action = this.insertActionAsync;
-    }
+    this._balanceRenew = false;
+    this._action = this.insertActionAsync;
   }
   async onSave(balanceForm: NgForm) {
     let notification: any = {
@@ -79,20 +68,6 @@ export class AddBalanceComponent implements OnInit {
       return true;
     } catch (error) {
       this.disableButton = false;
-      this._balanceService.errorNotification(error);
-      return false;
-    }
-  }
-
-  async updateActionAsync(balanceForm: NgForm) {
-    try {
-      await this._balanceService.updateAsync(
-        Object.assign(balanceForm.value, {
-          Id: this.data.Id,
-        })
-      );
-      return true;
-    } catch (error) {
       this._balanceService.errorNotification(error);
       return false;
     }

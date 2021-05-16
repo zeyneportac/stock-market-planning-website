@@ -36,36 +36,12 @@ export class BalanceListComponent implements OnInit {
     }
   }
 
-  async balanceDelete(Id) {
-    const diologRef = this._dialog.open(DialogWindowComponent, {
-      data: {
-        message: 'Are you sure you want to delete the balance ?',
-        icon: 'fa fa-exclamation',
-      },
-    });
-
-    diologRef.afterClosed().subscribe(async (result: boolean) => {
-      if (result) {
-        try {
-          await this._balanceService.deleteAsync({ Id });
-          this.balanceList.splice(
-            this.balanceList.findIndex((balance) => balance.Id == Id),
-            1
-          );
-          let notificationMessage: string;
-          this._translateService
-            .get('Balance information was successfully deleted')
-            .subscribe((value) => (notificationMessage = value));
-          this._snackBar.open(notificationMessage, 'X', {
-            duration: 3000,
-            panelClass: 'notification__success',
-            verticalPosition: 'bottom',
-            horizontalPosition: 'right',
-          });
-        } catch (error) {
-          this._balanceService.errorNotification(error);
-        }
-      }
-    });
+  async confirmAmount(balanceID) {
+    try {
+      await this._balanceService.confirmAmount({ Id: balanceID });
+      await this.ngOnInit();
+    } catch (error) {
+      this._balanceService.errorNotification(error);
+    }
   }
 }
