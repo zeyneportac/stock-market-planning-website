@@ -30,6 +30,7 @@ import { BalanceListComponent } from './pages/balance-list/balance-list.componen
 import { AddBalanceComponent } from './components/add-balance/add-balance.component';
 import { OrderListComponent } from './pages/order-list/order-list.component';
 import { AddOrderComponent } from './components/add-order/add-order.component';
+import { PasswordChangeComponent } from './components/password-change/password-change.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -57,6 +58,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AddBalanceComponent,
     OrderListComponent,
     AddOrderComponent,
+    PasswordChangeComponent,
   ],
   imports: [
     BrowserModule,

@@ -3,6 +3,7 @@ import { LanguageService, AuthService } from '../../../utils';
 import { MatDialog } from '@angular/material/dialog';
 import { AddBalanceComponent } from '../../../components';
 import { Balance } from '../../../models';
+import { PasswordChangeComponent } from '../../password-change/password-change.component';
 
 @Component({
   selector: 'app-admin-header',
@@ -44,5 +45,11 @@ export class AdminHeaderComponent implements OnInit {
 
   async signout() {
     await this._authService.logout();
+  }
+
+  openPasswordChangeWindow() {
+    this._dialog.open(PasswordChangeComponent, {
+      width: '400px',
+    });
   }
 }

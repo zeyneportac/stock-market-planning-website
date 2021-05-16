@@ -9,4 +9,5 @@ export class User {
   PhoneNumber: number;
   IdentityNo: number;
   Balance: number;
+  NewPassword: string;
 }
