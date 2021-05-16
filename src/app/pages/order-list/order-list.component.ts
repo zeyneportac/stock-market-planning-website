@@ -3,7 +3,7 @@ import { OrderService } from '../../utils';
 import { TranslateService } from '@ngx-translate/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
-import { AddOrderComponent, DialogWindowComponent } from '../../components';
+import { DialogWindowComponent } from '../../components';
 import { Order } from '../../models';
 
 @Component({
@@ -35,15 +35,7 @@ export class OrderListComponent implements OnInit {
       this._orderService.errorNotification(error);
     }
   }
-  openAddOrder(Id = null) {
-    const diologRef = this._dialog.open(AddOrderComponent, {
-      width: '400px',
-      data: Id == null ? null : this.orderList.find((order) => order.Id == Id),
-    });
-    diologRef.afterClosed().subscribe((result: any) => {
-      if (result) this.ngOnInit();
-    });
-  }
+
   async orderDelete(Id) {
     const diologRef = this._dialog.open(DialogWindowComponent, {
       data: {
