@@ -28,7 +28,7 @@ const routes: Routes = [
         data: {
           title: 'User List',
           icon: 'fa fa-2x fa-user',
-          authorize: [Roles.Root, Roles.Administrator],
+          authorize: [Roles.Admin],
         },
       },
       {
@@ -37,7 +37,7 @@ const routes: Routes = [
         data: {
           title: 'Add User',
           icon: 'fa fa-2x fa-user-plus',
-          authorize: [Roles.Root, Roles.Administrator],
+          authorize: [Roles.Admin],
         },
       },
       {
@@ -46,7 +46,7 @@ const routes: Routes = [
         data: {
           title: 'Edit User',
           icon: 'fa fa-2x fa-home',
-          authorize: [Roles.Root, Roles.Administrator],
+          authorize: [Roles.Admin],
         },
       },
       {
@@ -60,7 +60,6 @@ const routes: Routes = [
         data: {
           title: 'Product List',
           icon: 'fa fa-2x fa-store',
-          authorize: [Roles.Root, Roles.Administrator],
         },
       },
       {
@@ -69,7 +68,7 @@ const routes: Routes = [
         data: {
           title: 'Balance List',
           icon: 'fa fa-2x fa-credit-card',
-          authorize: [Roles.Root, Roles.Administrator],
+          authorize: [Roles.Admin],
         },
       },
       {
@@ -78,7 +77,7 @@ const routes: Routes = [
         data: {
           title: 'Order List',
           icon: 'fa fa-2x fa-shopping-basket',
-          authorize: [Roles.Root, Roles.Administrator],
+          authorize: [Roles.Admin],
         },
       },
     ],
