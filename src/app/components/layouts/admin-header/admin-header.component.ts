@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LanguageService, AuthService } from '../../../utils';
+import { LanguageService, AuthService, UserService } from '../../../utils';
 import { MatDialog } from '@angular/material/dialog';
-import { Balance } from '../../../models';
+import { Balance, User } from '../../../models';
 import {
   PasswordChangeComponent,
   AddBalanceComponent,
@@ -15,11 +15,18 @@ import {
 export class AdminHeaderComponent implements OnInit {
   constructor(
     private _languageService: LanguageService,
+    private _userService: UserService,
     private _authService: AuthService,
     private _dialog: MatDialog
   ) {}
-
+  user: User = new User();
   balanceList: Array<Balance>;
+
+  async ngOnInit() {
+    const currentUser = this._authService.currentUserValue();
+    this.user = <User>await this._userService.findAsync(currentUser.Id);
+    console.log(' this.user', this.user);
+  }
 
   openAddBalance(Id = null) {
     const diologRef = this._dialog.open(AddBalanceComponent, {
@@ -38,7 +45,6 @@ export class AdminHeaderComponent implements OnInit {
     this._languageService.getLanguage() == 'en'
       ? 'us'
       : this._languageService.getLanguage() || 'tr';
-  ngOnInit(): void {}
 
   setLang(lang: string) {
     this.lang = lang == 'en' ? 'us' : lang;

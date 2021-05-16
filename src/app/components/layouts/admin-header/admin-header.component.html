@@ -1,10 +1,14 @@
-<nav class="main-header navbar navbar-expand bg-white navbar-light border-bottom">
+<nav
+  class="main-header navbar navbar-expand bg-white navbar-light border-bottom"
+>
   <ul class="navbar-nav">
     <li class="nav-item">
-      <a class="nav-link" data-widget="pushmenu" href="#"><i class="fa fa-bars"></i></a>
+      <a class="nav-link" data-widget="pushmenu" href="#"
+        ><i class="fa fa-bars"></i
+      ></a>
     </li>
     <li class="nav-item d-none d-sm-inline-block">
-      <a [routerLink]="['/']" class="nav-link">{{ 'Home' | translate }}</a>
+      <a [routerLink]="['/']" class="nav-link">{{ "Home" | translate }}</a>
     </li>
   </ul>
 
@@ -14,42 +18,83 @@
         <i class="flag-icon flag-icon-{{ lang }} lang"></i>
       </a>
       <div class="dropdown-menu dropdown-menu-right p-0">
-        <a (click)="setLang('tr')" class="dropdown-item lang__selection" [ngClass]="{'active': lang=='tr'}">
+        <a
+          (click)="setLang('tr')"
+          class="dropdown-item lang__selection"
+          [ngClass]="{ active: lang == 'tr' }"
+        >
           <i class="flag-icon flag-icon-tr mr-2"></i> Türkçe
         </a>
-        <a (click)="setLang('en')" class="dropdown-item lang__selection" [ngClass]="{'active': lang=='us'}">
+        <a
+          (click)="setLang('en')"
+          class="dropdown-item lang__selection"
+          [ngClass]="{ active: lang == 'us' }"
+        >
           <i class="flag-icon flag-icon-us mr-2"></i> English
         </a>
       </div>
     </li>
     <li class="nav-item dropdown user-menu">
-      <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
-        <img src="assets/images/default/user.png" class="user-image img-circle elevation-2" alt="User Image">
-        <span class="d-none d-md-inline">{{ userInformation.FirstName }} {{ userInformation.LastName
-          }}</span>
+      <a
+        href="#"
+        class="nav-link dropdown-toggle"
+        data-toggle="dropdown"
+        aria-expanded="true"
+      >
+        <img
+          src="assets/images/default/user.png"
+          class="user-image img-circle elevation-2"
+          alt="User Image"
+        />
+        <span class="d-none d-md-inline"
+          >{{ userInformation.FirstName }} {{ userInformation.LastName }}</span
+        >
       </a>
-      <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right" style="left: inherit; right: 0px;">
+      <ul
+        class="dropdown-menu dropdown-menu-lg dropdown-menu-right"
+        style="left: inherit; right: 0px"
+      >
         <li class="user-header bg">
-          <img src="assets/images/default/user.png" class="img-circle elevation-2" alt="User Image">
+          <img
+            src="assets/images/default/user.png"
+            class="img-circle elevation-2"
+            alt="User Image"
+          />
 
           <p>
             {{ userInformation.FirstName }} {{ userInformation.LastName }}
             <small>{{ userInformation.UserTypeName | translate }}</small>
+            <small>
+              {{ "Balance" | translate }}: {{ userInformation.Balance }}</small
+            >
           </p>
         </li>
         <li>
           <div class="col-12 pt-2">
-            <button type="button" class="btn btn-sm btn-violet" (click)="openAddBalance()"><i class="fas fa-plus"></i>
-              {{ 'Add Balance' | translate }}</button>
-            <button type="button" class="btn btn-sm btn-white float-right pl-2" (click)="openPasswordChangeWindow()">{{
-              'Change
-              Password' | translate
-              }}</button>
+            <button
+              type="button"
+              class="btn btn-sm btn-violet"
+              (click)="openAddBalance()"
+            >
+              <i class="fas fa-plus"></i> {{ "Add Balance" | translate }}
+            </button>
+            <button
+              type="button"
+              class="btn btn-sm btn-white float-right pl-2"
+              (click)="openPasswordChangeWindow()"
+            >
+              {{ "Change
+              Password" | translate }}
+            </button>
           </div>
         </li>
         <li class="user-footer">
-          <a [routerLink]="['/user/profile']" class="btn btn-violet btn-flat">{{'Profile' | translate}}</a>
-          <a (click)="signout()" class="btn btn-violet btn-flat float-right">{{ 'Sign out' | translate }}</a>
+          <a [routerLink]="['/user/profile']" class="btn btn-violet btn-flat">{{
+            "Profile" | translate
+          }}</a>
+          <a (click)="signout()" class="btn btn-violet btn-flat float-right">{{
+            "Sign out" | translate
+          }}</a>
         </li>
       </ul>
     </li>
