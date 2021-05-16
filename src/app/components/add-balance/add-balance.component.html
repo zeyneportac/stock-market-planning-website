@@ -1,0 +1,25 @@
+<div ma-dialog-title class="institution-dialog__header">
+    <div class="modal-header">
+        <h2>{{ "Balance Transactions" | translate }}</h2>
+        <a [mat-dialog-close]="false" class="close-icon">
+            <mat-icon>close</mat-icon>
+        </a>
+    </div>
+</div>
+
+<mat-dialog-content class="mat-typography institution-dialog__content">
+    <form #addProjectForm="ngForm" (ngSubmit)="onSave(addProjectForm)">
+        <div class="form-group mt-2">
+            <mat-form-field appearance="outline" class="w-100">
+                <mat-label>{{ " Amount of Balance" | translate }}</mat-label>
+                <input matInput type="number" placeholder="{{ 'Enter Amount of Balance' | translate }}"
+                    name="AmountofBalance" #AmountofBalance="ngModel" [(ngModel)]="_model.AmountofBalance" required />
+                <mat-error *ngIf="AmountofBalance.invalid && AmountofBalance.touched">
+                    {{ "Amount of Balance field must be filled" | translate }}</mat-error>
+            </mat-form-field>
+        </div>
+        <button type="submit" class="btn  w-100" [disabled]="disableButton">
+            {{ "Save" | translate }}
+        </button>
+    </form>
+</mat-dialog-content>

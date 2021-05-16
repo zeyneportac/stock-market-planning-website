@@ -3,11 +3,24 @@
 }
 
 .lang {
-    position: relative;
-    width: 30px;
-    height: 20px;
+  position: relative;
+  width: 30px;
+  height: 20px;
 
   &__selection {
     cursor: pointer;
   }
+}
+.btn-violet {
+  background-color: #6d597a;
+  color: white;
+}
+.bg {
+  background-color: #cbc0d3;
+}
+.dropdown-menu {
+  background-color: #b0a4b9;
+}
+.user-footer {
+  background-color: #b0a4b9 !important;
 }

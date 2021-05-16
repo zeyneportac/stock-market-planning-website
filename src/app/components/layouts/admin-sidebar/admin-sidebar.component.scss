@@ -1,7 +1,18 @@
 .main-sidebar {
   z-index: 999;
+  background-color: #6d597a;
 }
 
-.nav-link{
+.nav-link {
   cursor: pointer;
+  color: white;
+  margin-top: 2rem;
+  font-size: medium;
+}
+
+a:active {
+  background-color: #493d52 !important;
+}
+a:hover {
+  background-color: #493d52 !important;
 }
