@@ -6,7 +6,7 @@ export class User {
   Password: string;
   UserTypeName: string;
   UserName: string;
-  PhoneNumber: number;
+  Phone: number;
   IdentityNo: number;
   Balance: number;
   NewPassword: string;
