@@ -34,13 +34,24 @@ export class AddUserComponent implements OnInit {
   lang: string = this._languageService.getLanguage() || 'tr';
   userRoles: Array<object> = [
     {
-      userTypeName: 'Administrator',
-      authorize: [Roles.Root].indexOf(this._UserTypeName) === -1 ? false : true,
+      userTypeName: 'Admin',
+      authorize:
+        [Roles.Admin].indexOf(this._UserTypeName) === -1 ? false : true,
+    },
+    {
+      userTypeName: 'Seller',
+      authorize:
+        [Roles.Admin].indexOf(this._UserTypeName) === -1 ? false : true,
+    },
+    {
+      userTypeName: 'Receiver',
+      authorize:
+        [Roles.Admin].indexOf(this._UserTypeName) === -1 ? false : true,
     },
   ];
 
   async ngOnInit() {
-    this.typeNameControl = this._UserTypeName == 'Root' ? true : false;
+    this.typeNameControl = this._UserTypeName == 'Admin' ? true : false;
     const Id = this._activatedRoute.snapshot.paramMap.get('Id');
     if (Id != null) {
       try {
