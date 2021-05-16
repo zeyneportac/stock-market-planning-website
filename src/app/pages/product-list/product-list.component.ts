@@ -79,4 +79,13 @@ export class ProductListComponent implements OnInit {
       }
     });
   }
+
+  async productConfirm(Id) {
+    try {
+      await this._productService.updateAsync({ Id, ProductState: true });
+      await this.ngOnInit();
+    } catch (error) {
+      this._productService.errorNotification(error);
+    }
+  }
 }
