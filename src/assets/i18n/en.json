@@ -71,7 +71,7 @@
 	"Quantity": "Quantity",
 	"Quantity field must be filled": "Quantity field must be filled",
 	"Receiver User Id": "Receiver User Id",
-	"Saller User Name": "Saller User Name",
+	"Seller User Name": "Seller User Name",
 	"Save": "Save",
 	"Search": "Search",
 	"Send": "Send",
@@ -98,5 +98,13 @@
 	"Your Active Password": "Your Active Password",
 	"Your Active Password field must be filled": "Your Active Password field must be filled",
 	"Your account has been deleted": "Your account has been deleted",
-	"Your active password does not match !": "Your active password does not match !"
+	"Your active password does not match !": "Your active password does not match !",
+	"Balance List": "Balance List",
+	"User List": "User List",
+	"Add User": "Add User",
+	"Product List": "Product List",
+	"Order List": "Order List",
+	"Automatic password generation":"Automatic password generation"
+
+
 }

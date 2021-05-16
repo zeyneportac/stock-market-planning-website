@@ -70,8 +70,8 @@
 	"Profile": "Profil",
 	"Quantity": "Miktar",
 	"Quantity field must be filled": "Miktar alanı doldurulmalıdır",
-	"Receiver User Id": "Alıcı Kullanıcı Ic",
-	"Saller User Name": "Satıcı Kullanıcı Adı",
+	"Receiver User Id": "Alıcı Kullanıcı Id",
+	"Seller User Name": "Satıcı Kullanıcı Adı",
 	"Save": "Kaydet",
 	"Search": "Ara",
 	"Send": "Gönder",
@@ -93,10 +93,17 @@
 	"User Type": "Kullanıcı tipi",
 	"User information was successfully deleted": "Kullanıcı bilgileri başarıyla silindi",
 	"User registration is complete": "Kullanıcı kaydı tamamlandı",
-	"WELCOME TO THE MARKET": "MARKETE HOŞGELDİNİZ",
+	"WELCOME TO THE MARKET": "MARKETE HOŞ GELDİNİZ",
 	"YES": "EVET",
 	"Your Active Password": "Aktif Şifreniz",
 	"Your Active Password field must be filled": "Aktif Şifre alanınız doldurulmalıdır",
 	"Your account has been deleted": "Hesabınız silinmiştir",
-	"Your active password does not match !": "Aktif şifreniz uyuşmuyor!"
+	"Your active password does not match !": "Aktif şifreniz uyuşmuyor!",
+	"Balance List": "Bakiye Listesi",
+	"User List": "Kullanıcı Listesi",
+	"Add User": "Kullanıcı Ekle",
+	"Product List": "Ürün Listesi",
+	"Order List": "Sipariş Listesi",
+	"Automatic password generation":"Otomatik şifre oluşturma"
+
 }

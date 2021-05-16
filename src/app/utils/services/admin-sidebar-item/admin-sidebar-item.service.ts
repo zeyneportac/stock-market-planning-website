@@ -11,7 +11,7 @@ export class AdminSidebarItemService {
   _url = this._router.routerState.snapshot.url;
   menu: Array<object> = [
     {
-      title: 'User Add',
+      title: 'Add User',
       icon: 'fa fa-user-plus',
       link: '/user/add',
     },

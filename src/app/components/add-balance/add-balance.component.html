@@ -11,7 +11,7 @@
     <form #addProjectForm="ngForm" (ngSubmit)="onSave(addProjectForm)">
         <div class="form-group mt-2">
             <mat-form-field appearance="outline" class="w-100">
-                <mat-label>{{ " Amount of Balance" | translate }}</mat-label>
+                <mat-label>{{ "Amount of Balance" | translate }}</mat-label>
                 <input matInput type="number" placeholder="{{ 'Enter Amount of Balance' | translate }}"
                     name="AmountofBalance" #AmountofBalance="ngModel" [(ngModel)]="_model.AmountofBalance" required />
                 <mat-error *ngIf="AmountofBalance.invalid && AmountofBalance.touched">
