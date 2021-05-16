@@ -46,6 +46,79 @@
             </div>
             <div class="col-12 form-group">
               <mat-form-field appearance="outline" class="w-100">
+                <mat-label>{{ "User Name" | translate }}</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  placeholder="{{ 'Enter User Name' | translate }}"
+                  pattern="^[A-Za-zÇçÖöŞşÜüĞğİı ]+$"
+                  name="UserName"
+                  #UserName="ngModel"
+                  [(ngModel)]="_model.UserName"
+                  required
+                />
+                <mat-error *ngIf="UserName.invalid && UserName.touched">
+                  {{ "User Name field must be filled" | translate }}</mat-error
+                >
+              </mat-form-field>
+            </div>
+            <div class="col-12 form-group">
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>{{ "Phone Number" | translate }}</mat-label>
+                <input
+                  matInput
+                  type="number"
+                  placeholder="{{ 'Enter Phone Number' | translate }}"
+                  name="Phone"
+                  #Phone="ngModel"
+                  [(ngModel)]="_model.Phone"
+                  required
+                />
+                <mat-error *ngIf="Phone.invalid && Phone.touched">
+                  {{
+                    "Phone Number field must be filled" | translate
+                  }}</mat-error
+                >
+              </mat-form-field>
+            </div>
+            <div class="col-12 form-group">
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>{{ "Identity No" | translate }}</mat-label>
+                <input
+                  matInput
+                  type="number"
+                  placeholder="{{ 'Enter Identity No ' | translate }}"
+                  name="IdentityNo"
+                  #IdentityNo="ngModel"
+                  [(ngModel)]="_model.IdentityNo"
+                  required
+                />
+                <mat-error *ngIf="IdentityNo.invalid && IdentityNo.touched">
+                  {{
+                    "Identity No  field must be filled" | translate
+                  }}</mat-error
+                >
+              </mat-form-field>
+            </div>
+            <div class="col-12 form-group">
+              <mat-form-field appearance="outline" class="w-100">
+                <mat-label>{{ "Balance" | translate }}</mat-label>
+                <input
+                  matInput
+                  type="number"
+                  placeholder="{{ 'Enter Balance' | translate }}"
+                  name="Balance"
+                  #Balance="ngModel"
+                  [(ngModel)]="_model.Balance"
+                  required
+                />
+                <mat-error *ngIf="Balance.invalid && Balance.touched">
+                  {{ "Balance field must be filled" | translate }}</mat-error
+                >
+              </mat-form-field>
+            </div>
+            <div class="col-12 form-group">
+              <mat-form-field appearance="outline" class="w-100">
                 <mat-label>{{ "Email Address" | translate }}</mat-label>
                 <input
                   matInput
