@@ -23,8 +23,8 @@
         <tr>
           <th>{{ "Id" | translate }}</th>
           <th>{{ "Amount of Balance" | translate }}</th>
-          <th>{{ "Created Date" | translate }}</th>
           <th>{{ "User Name" | translate }}</th>
+          <th>{{ "Created Date" | translate }}</th>
         </tr>
       </thead>
       <tbody>
@@ -37,13 +37,14 @@
         >
           <td>{{ balance.Id }}</td>
           <td>{{ balance.AmountofBalance }}</td>
-          <td>{{ balance.CreatedDate }}</td>
           <td>{{ balance.UserName }}</td>
+          <td>{{ balance.CreatedDate | date: "M/dd/yyyy, HH:mm":"+3" }}</td>
 
           <td class="list-button text-right">
             <button
               class="cursor__pointer btn-violet btn btn-sm"
               (click)="confirmAmount(balance.Id)"
+              [hidden]="!isAdmin"
             >
               {{ "Confirm Amount" | translate }}
             </button>
