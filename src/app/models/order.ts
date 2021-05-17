@@ -5,4 +5,7 @@ export class Order {
   ProductPrice: number;
   Quantity: number;
   CreatedDate: number;
+  ProductName: string;
+  SallerUserName: string;
+  ReceiverUserName: string;
 }
