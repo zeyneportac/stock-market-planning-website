@@ -14,11 +14,13 @@ export class AdminSidebarItemService {
       title: 'Add User',
       icon: 'fa fa-user-plus',
       link: '/user/add',
+      authorize: [Roles.Admin],
     },
     {
       title: 'User List',
       icon: 'fa fa-address-book',
       link: '/users',
+      authorize: [Roles.Admin],
     },
     {
       title: 'Product List',
@@ -29,11 +31,13 @@ export class AdminSidebarItemService {
       title: 'Balance List',
       icon: 'fa fa-credit-card',
       link: '/balance',
+      authorize: [Roles.Admin],
     },
     {
       title: 'Order List',
       icon: 'fa fa-shopping-basket',
       link: '/order',
+      authorize: [Roles.Admin],
     },
   ];
 
