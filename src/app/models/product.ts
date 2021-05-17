@@ -5,4 +5,5 @@ export class Product {
   Price: number;
   UserId: number;
   SallerUserName: string;
+  ProductState: string;
 }

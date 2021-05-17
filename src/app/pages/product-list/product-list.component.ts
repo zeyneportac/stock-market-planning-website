@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../../utils';
+import { ProductService, AuthService } from '../../utils';
 import { TranslateService } from '@ngx-translate/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
@@ -8,7 +8,7 @@ import {
   DialogWindowComponent,
   AddOrderComponent,
 } from '../../components';
-import { Order, Product } from '../../models';
+import { Order, Product, Roles } from '../../models';
 
 @Component({
   selector: 'app-product-list',
@@ -17,11 +17,21 @@ import { Order, Product } from '../../models';
 })
 export class ProductListComponent implements OnInit {
   constructor(
+    private _authService: AuthService,
     private _productService: ProductService,
     private _snackBar: MatSnackBar,
     private _translateService: TranslateService,
     private _dialog: MatDialog
   ) {}
+  isAdmin: boolean =
+    this._authService.currentUserValue?.result?.UserTypeName == Roles.Admin
+      ? true
+      : false;
+  isSeller: boolean =
+    this._authService.currentUserValue?.result?.UserTypeName == Roles.Seller
+      ? true
+      : false;
+
   orderList: Array<Order>;
   productList: Array<Product>;
   searchText: string;
@@ -33,6 +43,7 @@ export class ProductListComponent implements OnInit {
   };
 
   async ngOnInit() {
+    console.log(this.isSeller);
     try {
       this.productList = <Array<Product>>await this._productService.listAsync();
     } catch (error) {
@@ -97,6 +108,14 @@ export class ProductListComponent implements OnInit {
     try {
       await this._productService.updateAsync({ Id, ProductState: true });
       await this.ngOnInit();
+      this._translateService.get('Product Activated').subscribe((value) => {
+        this._snackBar.open(value, 'X', {
+          duration: 3000,
+          panelClass: 'notification__success',
+          verticalPosition: 'bottom',
+          horizontalPosition: 'right',
+        });
+      });
     } catch (error) {
       this._productService.errorNotification(error);
     }

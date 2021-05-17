@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-3 add-button pt-2">
+  <div class="col-3 add-button pt-2" *ngIf="isAdmin || isSeller">
     <button type="button" class="btn btn-sm" (click)="openAddProduct()">
       <i class="fas fa-plus"></i> {{ "Add Product" | translate }}
     </button>
@@ -30,7 +30,9 @@
           <th>{{ "Product Name" | translate }}</th>
           <th>{{ "Quantity" | translate }}</th>
           <th>{{ "Price" | translate }}</th>
+
           <th>{{ "Seller User Name" | translate }}</th>
+          <th>{{ "Status" | translate }}</th>
         </tr>
       </thead>
       <tbody>
@@ -46,7 +48,18 @@
           <td>{{ product.Quantity }}</td>
           <td>{{ product.Price }}</td>
           <td>{{ product.SallerUserName }}</td>
-
+          <ng-container [ngSwitch]="product.ProductState">
+            <td *ngSwitchCase="0">
+              <span class="badge badge-danger">{{
+                "Deactive" | translate
+              }}</span>
+            </td>
+            <td *ngSwitchCase="1">
+              <span class="badge badge-success">{{
+                "Active" | translate
+              }}</span>
+            </td>
+          </ng-container>
           <td class="list-button text-right">
             <a
               class="cursor__pointer"
@@ -56,15 +69,35 @@
               <mat-icon class="list-menu">more_vert</mat-icon>
             </a>
             <mat-menu #menu="matMenu">
-              <a mat-menu-item (click)="openAddOrder(product.Id)">
-                <mat-icon>done</mat-icon>
-                <span>{{ "Confirm" | translate }}</span>
+              <a
+                mat-menu-item
+                *ngIf="!product.ProductState && isAdmin"
+                (click)="productConfirm(product.Id)"
+              >
+                <mat-icon>shopping_basket</mat-icon>
+                <span>{{ "Activate" | translate }}</span>
               </a>
-              <a mat-menu-item (click)="openAddProduct(product.Id)">
+              <a
+                mat-menu-item
+                (click)="openAddOrder(product.Id)"
+                *ngIf="!isSeller"
+              >
+                <mat-icon>shopping_basket</mat-icon>
+                <span>{{ "Order" | translate }}</span>
+              </a>
+              <a
+                mat-menu-item
+                *ngIf="isAdmin || isSeller"
+                (click)="openAddProduct(product.Id)"
+              >
                 <mat-icon>edit</mat-icon>
                 <span>{{ "Edit" | translate }}</span>
               </a>
-              <a mat-menu-item (click)="productDelete(product.Id)">
+              <a
+                mat-menu-item
+                *ngIf="isAdmin || isSeller"
+                (click)="productDelete(product.Id)"
+              >
                 <mat-icon>delete</mat-icon>
                 <span>{{ "Delete" | translate }}</span>
               </a>
