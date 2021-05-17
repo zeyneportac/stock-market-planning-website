@@ -56,9 +56,8 @@
               <mat-icon class="list-menu">more_vert</mat-icon>
             </a>
             <mat-menu #menu="matMenu">
-              <a mat-menu-item (click)="openAddOrder()">
-                <mat-icon>Confirm</mat-icon>
-
+              <a mat-menu-item (click)="openAddOrder(product.Id)">
+                <mat-icon>done</mat-icon>
                 <span>{{ "Confirm" | translate }}</span>
               </a>
               <a mat-menu-item (click)="openAddProduct(product.Id)">

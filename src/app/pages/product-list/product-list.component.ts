@@ -39,13 +39,13 @@ export class ProductListComponent implements OnInit {
       this._productService.errorNotification(error);
     }
   }
-  openAddOrder(Id = null) {
+  openAddOrder(Id) {
     const diologRef = this._dialog.open(AddOrderComponent, {
       width: '400px',
-      data: Id == null ? null : this.orderList.find((order) => order.Id == Id),
+      data: this.productList.find((product) => product.Id == Id),
     });
     diologRef.afterClosed().subscribe((result: any) => {
-      if (result) this.ngOnInit();
+      this.ngOnInit();
     });
   }
   openAddProduct(Id = null) {

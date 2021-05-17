@@ -22,11 +22,7 @@ export class AdminHeaderComponent implements OnInit {
   user: User = new User();
   balanceList: Array<Balance>;
 
-  async ngOnInit() {
-    const currentUser = this._authService.currentUserValue();
-    this.user = <User>await this._userService.findAsync(currentUser.Id);
-    console.log(' this.user', this.user);
-  }
+  async ngOnInit() {}
 
   openAddBalance(Id = null) {
     const diologRef = this._dialog.open(AddBalanceComponent, {

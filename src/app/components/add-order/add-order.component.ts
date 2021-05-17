@@ -3,7 +3,7 @@ import { Order } from '../../models';
 import { NgForm } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { OrderService } from '../../utils';
+import { AuthService, OrderService } from '../../utils';
 import { Router } from '@angular/router';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { MatDialogRef } from '@angular/material/dialog';
@@ -20,7 +20,8 @@ export class AddOrderComponent implements OnInit {
     private _orderService: OrderService,
     public _router: Router,
     private dialogRef: MatDialogRef<AddOrderComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private _authService: AuthService
   ) {}
 
   _model: Order = new Order();
@@ -29,20 +30,10 @@ export class AddOrderComponent implements OnInit {
   disableButton: boolean = false;
 
   async ngOnInit() {
-    if (this.data?.Id != null) {
-      try {
-        this._model = this.data;
-        console.log(this._model);
-      } catch (error) {
-        this._orderService.errorNotification(error);
-        this._router.navigateByUrl('admin');
-      }
-      this._action = this.updateActionAsync;
-    } else {
-      this._orderRenew = false;
-      this._action = this.insertActionAsync;
-    }
+    this._orderRenew = false;
+    this._action = this.insertActionAsync;
   }
+
   async onSave(orderForm: NgForm) {
     let notification: any = {
       message: '',
@@ -73,26 +64,20 @@ export class AddOrderComponent implements OnInit {
   async insertActionAsync(orderForm: NgForm) {
     try {
       this.disableButton = true;
-      await this._orderService.insertAsync(orderForm.value);
+      await this._orderService.insertAsync({
+        ...orderForm.value,
+        ProductID: this.data.Id,
+      });
+      let userValue = this._authService.currentUserValue;
+      userValue.result.Balance =
+        userValue.result.Balance - this.data.Price * orderForm.value.Quantity;
+      localStorage.setItem('currentUser', JSON.stringify(userValue));
       orderForm.resetForm();
       this._orderRenew = true;
       return true;
     } catch (error) {
+      console.log(error);
       this.disableButton = false;
-      this._orderService.errorNotification(error);
-      return false;
-    }
-  }
-
-  async updateActionAsync(orderForm: NgForm) {
-    try {
-      await this._orderService.updateAsync(
-        Object.assign(orderForm.value, {
-          Id: this.data.Id,
-        })
-      );
-      return true;
-    } catch (error) {
       this._orderService.errorNotification(error);
       return false;
     }
