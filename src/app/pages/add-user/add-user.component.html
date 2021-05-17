@@ -67,7 +67,7 @@
                 <mat-label>{{ "Phone Number" | translate }}</mat-label>
                 <input
                   matInput
-                  type="number"
+                  type="text"
                   placeholder="{{ 'Enter Phone Number' | translate }}"
                   name="Phone"
                   #Phone="ngModel"
@@ -86,7 +86,7 @@
                 <mat-label>{{ "Identity No" | translate }}</mat-label>
                 <input
                   matInput
-                  type="number"
+                  type="text"
                   placeholder="{{ 'Enter Identity No ' | translate }}"
                   name="IdentityNo"
                   #IdentityNo="ngModel"
@@ -97,23 +97,6 @@
                   {{
                     "Identity No  field must be filled" | translate
                   }}</mat-error
-                >
-              </mat-form-field>
-            </div>
-            <div class="col-12 form-group">
-              <mat-form-field appearance="outline" class="w-100">
-                <mat-label>{{ "Balance" | translate }}</mat-label>
-                <input
-                  matInput
-                  type="number"
-                  placeholder="{{ 'Enter Balance' | translate }}"
-                  name="Balance"
-                  #Balance="ngModel"
-                  [(ngModel)]="_model.Balance"
-                  required
-                />
-                <mat-error *ngIf="Balance.invalid && Balance.touched">
-                  {{ "Balance field must be filled" | translate }}</mat-error
                 >
               </mat-form-field>
             </div>
