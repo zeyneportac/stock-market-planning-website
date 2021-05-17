@@ -113,5 +113,11 @@
   "Are you sure you want to delete the user ?": "Are you sure you want to delete the user ?",
   "Are you sure you want to delete the product ?": "Are you sure you want to delete the product ?",
   "Confirm": "Confirm",
-  "Receiver": "Receiver"
+  "Receiver": "Receiver",
+  "Order": "Order",
+  "Deactive": "Deactive",
+  "Active": "Active",
+  "Status": "Status",
+  "Saller User Name": "Saller User Name",
+  "Receiver User Name": "Receiver User Name"
 }

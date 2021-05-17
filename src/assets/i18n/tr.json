@@ -113,5 +113,10 @@
   "Are you sure you want to delete the user ?": "Kullanıcıyı silmek istediğinizden emin misiniz ?",
   "Are you sure you want to delete the product ?": "Ürünü silmek istediğinizden emin misiniz ?",
   "Confirm": "Onayla",
-  "Receiver": "Alıcı"
+  "Receiver": "Alıcı",
+  "Order": "Sipariş Ver",
+  "Deactive": "Pasif",
+  "Active": "Aktif",
+  "Status": "Durum",
+  "Receiver User Name": "Alıcı Adı"
 }
